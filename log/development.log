@@ -2661,3 +2661,89 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 115ms (Views: 113.8ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-18 16:56:59 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"790Fn3hskJBFLx147BL6w6mWfCbs4BCl0ua3gsiOw4lMPLAYkTZpwW0qo9HA8xn+t9kGBCinOWvIEMEzIiYybg==", "user"=>{"email"=>"demo@demo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "demo@demo.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 111ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"790Fn3hskJBFLx147BL6w6mWfCbs4BCl0ua3gsiOw4lMPLAYkTZpwW0qo9HA8xn+t9kGBCinOWvIEMEzIiYybg==", "user"=>{"email"=>"demo@demo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_notifications.html.erb (0.4ms)
+Completed 200 OK in 348ms (Views: 248.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-18 16:57:23 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nL06ZXY3MrRNsW7VGlaPMY1d+YgQXggfO24C5jS4Jgc/XI/in23L5WW00Hw2t2wMkxKDqtQZIdEhmHRX3hDX4A==", "user"=>{"email"=>"demo@demo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "demo@demo.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-18 08:57:23.799173"], ["last_sign_in_at", "2018-05-18 08:57:23.799173"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-18 08:57:23.799829"], ["id", 1]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 119ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-18 16:57:23 +0800
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering orders/index.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("items"."quantity") FROM "items"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT SUM("items"."remaining_quantity") FROM "items"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT SUM("items"."quantity") FROM "items"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT SUM("items"."remaining_quantity") FROM "items"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (expire_at < '2018-05-18') AND "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members"[0m
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered orders/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_notifications.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 55.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-18 17:13:56 +0800
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering orders/index.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("items"."quantity") FROM "items"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("items"."remaining_quantity") FROM "items"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT SUM("items"."quantity") FROM "items"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT SUM("items"."remaining_quantity") FROM "items"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (expire_at < '2018-05-18') AND "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members"[0m
+  [1m[36mMember Load (0.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered orders/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_notifications.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 51.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-18 17:13:57 +0800
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering orders/index.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("items"."quantity") FROM "items"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT SUM("items"."remaining_quantity") FROM "items"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT SUM("items"."quantity") FROM "items"[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT SUM("items"."remaining_quantity") FROM "items"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE (expire_at < '2018-05-18') AND "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = ?[0m  [["status", "t"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members"[0m
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered orders/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_notifications.html.erb (0.5ms)
+Completed 200 OK in 61ms (Views: 58.4ms | ActiveRecord: 0.5ms)
+
+
